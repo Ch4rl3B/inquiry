@@ -1,0 +1,22 @@
+name: inquiry
+description: A package for easy show inquiry (questionnaire, quiz)
+version: 0.0.1
+#homepage:
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  percent_indicator: ^4.2.2
+  stacked: ^3.1.0+3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
