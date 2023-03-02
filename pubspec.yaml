@@ -4,19 +4,19 @@ version: 0.0.1
 repository: https://github.com/Ch4rl3B/inquiry
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
     sdk: flutter
   percent_indicator: ^4.2.2
-  stacked: ^3.1.0+2
+  stacked: ^3.1.0+3
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
