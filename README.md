@@ -20,12 +20,12 @@ The idea of this package was based in [Flutter Polls](https://pub.dev/packages/f
 
 #### Animated
 
-<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/device-2023-03-02-014945.gif" alt="animated demo" width="230px" hspace="30" />
+<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/device-2023-03-02-014945.gif?raw=true" alt="animated demo" width="230px" hspace="30" />
 
 #### How do it look
 <p align="center">
-<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015107.png" alt="animated demo" width="230px" hspace="30" />
-<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015125.png" alt="animated demo" width="230px" hspace="30" />
+<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015107.png?raw=true" alt="animated demo" width="230px" hspace="30" />
+<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015125.png?raw=true" alt="animated demo" width="230px" hspace="30" />
 </p>
 
 ## Getting started

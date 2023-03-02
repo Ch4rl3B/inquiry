@@ -1,3 +1,11 @@
+## 0.0.2+2
+
+* Changes in the README.md
+
+## 0.0.2+1
+
+* Changes in the README.md
+
 ## 0.0.2
 
 * Hiding the `Vote` button when the inquiry is voted

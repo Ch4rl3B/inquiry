@@ -1,6 +1,6 @@
 name: inquiry
 description: A package for easy show inquiry (questionnaire, quiz)
-version: 0.0.2+1
+version: 0.0.2+2
 repository: https://github.com/Ch4rl3B/inquiry
 
 environment:
