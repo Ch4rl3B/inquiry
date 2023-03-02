@@ -229,23 +229,27 @@ class Inquiry extends StackedView<InquiryViewModel> {
               );
             },
           ),
-          SizedBox(height: style.heightBetweenOptionsAndMeta),
-          ElevatedButton(
-            onPressed: viewModel.isLoading || viewModel.selectedOption == null
-                ? null
-                : viewModel.vote,
-            style: style.voteButtonStyle ??
-                ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  foregroundColor: Theme.of(context).primaryColor,
-                  shadowColor: Colors.transparent,
-                  textStyle: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
+          if (!viewModel.hasVoted)
+            SizedBox(height: style.heightBetweenOptionsAndMeta),
+          Visibility(
+            visible: !viewModel.hasVoted,
+            child: ElevatedButton(
+              onPressed: viewModel.isLoading || viewModel.selectedOption == null
+                  ? null
+                  : viewModel.vote,
+              style: style.voteButtonStyle ??
+                  ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Theme.of(context).primaryColor,
+                    shadowColor: Colors.transparent,
+                    textStyle: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-            child: Text(
-              voteButtonText ?? 'Vote',
+              child: Text(
+                voteButtonText ?? 'Vote',
+              ),
             ),
           ),
           SizedBox(height: style.heightBetweenOptionsAndMeta),
@@ -256,7 +260,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
           Visibility(
             visible: metadataWidget != null,
             child: Expanded(
-              child: metadataWidget ?? const Placeholder(),
+              child: metadataWidget ?? const SizedBox(),
             ),
           ),
         ],

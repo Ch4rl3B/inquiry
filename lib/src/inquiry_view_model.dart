@@ -7,8 +7,10 @@ class InquiryViewModel extends BaseViewModel {
   /// Set to true if the user has voted
   bool hasVoted;
 
+  /// The option the user voted.
   int? votedOption;
 
+  /// The option the user selected
   int? selectedOption;
 
   final List<InquiryOption> options;
@@ -31,8 +33,11 @@ class InquiryViewModel extends BaseViewModel {
     }
   }
 
+  /// Calculates the total votes for the inquiry.
   int get totalVotes => options.fold(0, (p, e) => p + e.votes);
 
+  /// This method is called when the user taps in an option. If the option was
+  /// previously selected the is deselected, in the other case then selects it.
   void tapOption(InquiryOption option) async {
     if (selectedOption == option.id) {
       selectedOption = null;
@@ -42,6 +47,8 @@ class InquiryViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  /// this method is the one who handles the vote. It calls the [onVoted] callback
+  /// and if the return is true then changes the voting session to voted.
   void vote() async {
     bool response = true;
     final option =
@@ -206,9 +213,19 @@ class InquiryStyle {
 }
 
 class InquiryOption {
+  /// The id of the object. Will be used to identify the object on a list,
+  /// and to determine if the object was selected
+  /// must be unique in the list.
   final int id;
+
+  /// It can be any widget with an unbounded size that will be shown inside the
+  /// Inquiry Option
   final Widget title;
+
+  /// The amount of people that have voted for this option
   int votes;
+
+  /// indicate if this option is the right answer for the inquiry
   bool rightAnswer;
 
   InquiryOption({

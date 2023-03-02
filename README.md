@@ -1,7 +1,18 @@
+<p>
+  <a href="https://github.com/Ch4rl3B/inquiry">
+    <img src="https://img.shields.io/github/stars/Ch4rl3B/inquiry?logo=github" />
+  </a>
+  <img src="https://img.shields.io/github/license/Ch4rl3B/inquiry?logo=github" />
+  <img src="https://img.shields.io/badge/version-0.0.2-blue.svg" />
+  <img src="https://img.shields.io/badge/flutter-v3.3.0-blue.svg" />
+  <img src="https://img.shields.io/badge/dart-v2.18.0-blue.svg" />
+</p>
+
 Customizable Questionnaire for Flutter.
 
-This package allows to create questionnaire (similar to poll but with a right option)
-that are customizable.
+This package allows to create questionnaire (similar to poll but with a valid value option)
+that is customizable by the developer. It can be used to create very fancy quiz that you can
+adapt to your app design and will run in all platforms. 
 
 The idea of this package was based in [Flutter Polls](https://pub.dev/packages/flutter_polls)
 
@@ -9,12 +20,13 @@ The idea of this package was based in [Flutter Polls](https://pub.dev/packages/f
 
 #### Animated
 
-![animated](https://github.com/Ch4rl3B/inquiry/blob/main/media/device-2023-03-02-014945.gif)
+<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/device-2023-03-02-014945.gif" alt="animated demo" width="230px" hspace="30" />
 
 #### How do it look
-
-![img1](https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015107.png)
-![img2](https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015125.png)
+<p align="center">
+<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015107.png" alt="animated demo" width="230px" hspace="30" />
+<img src="https://github.com/Ch4rl3B/inquiry/blob/main/media/Screenshot_20230302_015125.png" alt="animated demo" width="230px" hspace="30" />
+</p>
 
 ## Getting started
 
