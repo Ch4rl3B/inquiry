@@ -103,7 +103,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
         children: [
           Visibility(
             visible: titleWidget != null,
-            child: titleWidget ?? Placeholder(),
+            child: titleWidget ?? const Placeholder(),
           ),
           Visibility(
             visible: titleWidget != null,
@@ -256,7 +256,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
           Visibility(
             visible: metadataWidget != null,
             child: Expanded(
-              child: metadataWidget ?? Placeholder(),
+              child: metadataWidget ?? const Placeholder(),
             ),
           ),
         ],

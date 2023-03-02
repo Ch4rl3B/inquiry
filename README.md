@@ -38,70 +38,61 @@ You can create a simple inquiry with
 
 ```dart
 
-Inquiry
-(
-inquiryId: 'inquiry',
-options: List.generate(
-5, (index) {
-return InquiryOption(
-id: index,
-title: Text(
-'Option $index',
-),
-votes: 0,
-rightAnswer: index == 2,
-);
-},
-),
-titleWidget: Text(
-"Title of the Inquiry",
-style: const TextStyle(
-fontWeight: FontWeight.w500,
-fontSize: 16,
-),
-),
-onVoted: (option, amount) {
-print("Voted option: ${option.title}. "
-"The option is ${option.rightAnswer ? 'correct' : 'incorrect'}");
-return Future.value(true);
-},
+Inquiry(
+  inquiryId: 'inquiry',
+  options: List.generate(
+    5, (index) {
+      return InquiryOption(
+        id: index,
+        title: Text(
+          'Option $index',
+        ),
+        votes: 0,
+        rightAnswer: index == 2,
+      );
+    },
+  ),
+  titleWidget: Text(
+    "Title of the Inquiry",
+    style: const TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: 16,
+    ),
+  ),
+  onVoted: (option, amount) {
+    print("Voted option: ${option.title}. "
+        "The option is ${option.rightAnswer ? 'correct' : 'incorrect'}");
+    return Future.value(true);
+  },
 );
 ```
 
 You can customize the look and feel with `InquiryStyle`
 
 ```dart
-  InquiryStyle
-(
-optionsBorderRadius: BorderRadius.circular(8),
-votedInquiryPercentRadius: const Radius.circular(8),
-optionsBorder: Border.all(color: Colors.black),
-rightAnswerBorder: Border.all(color: Colors.green),
-optionsBackgroundColor: Colors.grey.shade300,
-wrongBackgroundColor: Colors.red.shade100,
-rightBackgroundColor: Colors.green.shade100,
-optionsSplashColor: Colors.blue,
-votedWrongProgressColor: Colors.red.shade300,
-votedRightProgressColor: Colors.green.shade300,
-voteInProgressColor: Colors.blue,
-voteButtonStyle: ElevatedButton.styleFrom(
-backgroundColor: Colors.blue,
-foregroundColor: Colors.white,
-padding:
-const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-)
-,
-crossAxisAlignment
-:
-CrossAxisAlignment
-.
-start
-,
-)
+  InquiryStyle(
+    optionsBorderRadius: BorderRadius.circular(8),
+    votedInquiryPercentRadius: const Radius.circular(8),
+    optionsBorder: Border.all(color: Colors.black),
+    rightAnswerBorder: Border.all(color: Colors.green),
+    optionsBackgroundColor: Colors.grey.shade300,
+    wrongBackgroundColor: Colors.red.shade100,
+    rightBackgroundColor: Colors.green.shade100,
+    optionsSplashColor: Colors.blue,
+    votedWrongProgressColor: Colors.red.shade300,
+    votedRightProgressColor: Colors.green.shade300,
+    voteInProgressColor: Colors.blue,
+    voteButtonStyle: ElevatedButton.styleFrom(
+      backgroundColor: Colors.blue,
+      foregroundColor: Colors.white,
+      padding:
+      const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+    ),
+    crossAxisAlignment: CrossAxisAlignment.start,
+  )
 ```
 
-for more information look at
-the [example](https://github.com/Ch4rl3B/inquiry/blob/main/example/lib/main.dart)
+for more information look at the [example](https://github.com/Ch4rl3B/inquiry/blob/main/example/lib/main.dart)
 
 ## Additional information
 

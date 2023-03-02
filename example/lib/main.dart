@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:inquiry/inquiry.dart';
 
@@ -81,8 +82,10 @@ class MyApp extends StatelessWidget {
             ),
             metadataWidget: const Text('Created by Ch4rl3B'),
             onVoted: (option, amount) {
-              print("Voted option: ${option.title}. "
-                  "The option is ${option.rightAnswer ? 'correct' : 'incorrect'}");
+              if (kDebugMode) {
+                print("Voted option: ${option.title}. "
+                    "The option is ${option.rightAnswer ? 'correct' : 'incorrect'}");
+              }
               return Future.value(true);
             },
           ),
