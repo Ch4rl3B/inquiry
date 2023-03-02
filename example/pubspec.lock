@@ -75,6 +75,21 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get_it:
+    dependency: transitive
+    description:
+      name: get_it
+      sha256: "290fde3a86072e4b37dbb03c07bec6126f0ecc28dad403c12ffe2e5a2d751ab7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.2.0"
+  inquiry:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.1"
   js:
     dependency: transitive
     description:
@@ -115,6 +130,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -123,6 +146,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  percent_indicator:
+    dependency: transitive
+    description:
+      name: percent_indicator
+      sha256: cec41f67181fbd5322aa68b355621d1a4eea827426b8eeb613f6cbe195ff7b4a
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.2"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.5"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -144,6 +183,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  stacked:
+    dependency: transitive
+    description:
+      name: stacked
+      sha256: "3a254eb8c98f1d060bc54ca8b2dd2b3908af5c35ea2df7ff9cbac1f7b8450387"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0+3"
+  stacked_core:
+    dependency: transitive
+    description:
+      name: stacked_core
+      sha256: "28889e0b3cb612bf8f13d85050df43fb386f9483bd0fba6756637d9bc7af23dd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.4"
   stream_channel:
     dependency: transitive
     description:
@@ -176,6 +231,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  typed_data:
+    dependency: transitive
+    description:
+      name: typed_data
+      sha256: "26f87ade979c47a150c9eaab93ccd2bebe70a27dc0b4b29517f2904f04eb11a5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.1"
+  universal_io:
+    dependency: transitive
+    description:
+      name: universal_io
+      sha256: "06866290206d196064fd61df4c7aea1ffe9a4e7c4ccaa8fcded42dd41948005d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   vector_math:
     dependency: transitive
     description:
@@ -186,3 +257,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.0 <4.0.0"
+  flutter: ">=2.12.0"

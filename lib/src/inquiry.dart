@@ -94,8 +94,8 @@ class Inquiry extends StackedView<InquiryViewModel> {
     Widget? child,
   ) {
     return SizedBox(
-      width: style.width,
-      height: style.heigh,
+      width: style.width ?? MediaQuery.of(context).size.width,
+      height: style.height ?? MediaQuery.of(context).size.height,
       child: Column(
         crossAxisAlignment: style.crossAxisAlignment,
         mainAxisAlignment: style.mainAxisAlignment,
@@ -103,7 +103,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
         children: [
           Visibility(
             visible: titleWidget != null,
-            child: titleWidget!,
+            child: titleWidget ?? Placeholder(),
           ),
           Visibility(
             visible: titleWidget != null,
@@ -125,18 +125,19 @@ class Inquiry extends StackedView<InquiryViewModel> {
                       onTap: () {
                         viewModel.tapOption(option);
                       },
-                      splashColor: style.inquiryOptionsSplashColor,
-                      borderRadius: style.inquiryOptionsBorderRadius,
+                      splashColor: style.optionsSplashColor,
+                      borderRadius: style.optionsBorderRadius,
                       child: Container(
-                        height: style.inquiryOptionsHeight,
-                        width: style.inquiryOptionsWidth,
+                        height: style.optionsHeight,
+                        width: style.optionsWidth ??
+                            MediaQuery.of(context).size.width,
                         padding: EdgeInsets.zero,
                         decoration: BoxDecoration(
                           color: selected
                               ? style.voteInProgressColor
-                              : style.inquiryOptionsBackgroundColor,
-                          border: style.inquiryOptionsBorder,
-                          borderRadius: style.inquiryOptionsBorderRadius,
+                              : style.optionsBackgroundColor,
+                          border: style.optionsBorder,
+                          borderRadius: style.optionsBorderRadius,
                         ),
                         child: Center(
                             child: Visibility(
@@ -179,8 +180,8 @@ class Inquiry extends StackedView<InquiryViewModel> {
                       bottom: style.heightBetweenOptions,
                     ),
                     child: LinearPercentIndicator(
-                      width: style.inquiryOptionsWidth,
-                      lineHeight: style.inquiryOptionsHeight,
+                      width: style.optionsWidth,
+                      lineHeight: style.optionsHeight,
                       barRadius: style.votedInquiryPercentRadius,
                       padding: EdgeInsets.zero,
                       percent: viewModel.totalVotes == 0
@@ -189,11 +190,13 @@ class Inquiry extends StackedView<InquiryViewModel> {
                       animation: true,
                       animationDuration: style.votedAnimationDuration,
                       backgroundColor: selected
-                          ? style.inquiryRightBackgroundColor
-                          : style.inquiryWrongBackgroundColor,
-                      progressColor: selected
-                          ? style.votedRightProgressColor
-                          : style.votedWrongProgressColor,
+                          ? style.rightBackgroundColor
+                          : style.wrongBackgroundColor,
+                      progressColor: option.rightAnswer
+                          ? style.votedRightProgressColor ??
+                              Theme.of(context).primaryColor
+                          : style.votedWrongProgressColor ??
+                              Theme.of(context).colorScheme.error,
                       center: Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(
@@ -203,9 +206,18 @@ class Inquiry extends StackedView<InquiryViewModel> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             option.title,
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            if (selected)
+                              const Icon(
+                                Icons.check_circle_outline_rounded,
+                                color: Colors.black,
+                                size: 16,
+                              ),
                             const Spacer(),
                             Text(
-                              viewModel.totalVotes.toString(),
+                              option.votes.toString(),
                               style: style.votedPercentageTextStyle,
                             ),
                           ],
@@ -225,10 +237,10 @@ class Inquiry extends StackedView<InquiryViewModel> {
             style: style.voteButtonStyle ??
                 ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
+                  foregroundColor: Theme.of(context).primaryColor,
                   shadowColor: Colors.transparent,
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontSize: 14,
-                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -244,7 +256,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
           Visibility(
             visible: metadataWidget != null,
             child: Expanded(
-              child: metadataWidget!,
+              child: metadataWidget ?? Placeholder(),
             ),
           ),
         ],
@@ -266,7 +278,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
   bool get reactive => true;
 
   @override
-  bool get disposeViewModel => false;
+  bool get createNewViewModelOnInsert => true;
 
   @override
   void onDispose(InquiryViewModel viewModel) {

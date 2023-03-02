@@ -65,47 +65,47 @@ class InquiryStyle {
 
   /// Height of a [Inquiry].
   /// If not specified, the height is `double.infinity`.
-  final double? heigh;
+  final double? height;
 
   /// Height of an [InquiryOption].
   /// Defaults to 36.
-  final double inquiryOptionsHeight;
+  final double optionsHeight;
 
   /// Width of an [InquiryOption].
   /// The width is the same for all options.
   /// If not specified, the width is the width of the inquiry.
-  final double? inquiryOptionsWidth;
+  final double? optionsWidth;
 
   /// Border radius of an [InquiryOption].
   /// Defaults to 0.
-  final BorderRadius? inquiryOptionsBorderRadius;
+  final BorderRadius? optionsBorderRadius;
 
   /// Border of a [InquiryOption].
   /// The border is the same for all options.
-  /// You can define the border for the rightAnswer with [inquiryRightAnswerBorder]
+  /// You can define the border for the rightAnswer with [rightAnswerBorder]
   /// Defaults to null.
-  final BoxBorder? inquiryOptionsBorder;
+  final BoxBorder? optionsBorder;
 
   /// Border of the inquiry's right answer.
   /// Defaults to null.
-  final BoxBorder? inquiryRightAnswerBorder;
+  final BoxBorder? rightAnswerBorder;
 
   /// Color of a [InquiryOption].
   /// The color is the same for all options.
   /// Defaults to [Theme.of(context).canvasColor].
-  final Color? inquiryOptionsBackgroundColor;
+  final Color? optionsBackgroundColor;
 
   /// Color of the background of a [InquiryOption] when the user has voted.
   /// Defaults to [Theme.of(context).canvasColor].
-  final Color? inquiryWrongBackgroundColor;
+  final Color? wrongBackgroundColor;
 
   /// Color of the background of a [InquiryOption] when the user has voted.
   /// Defaults to [Theme.of(context).canvasColor].
-  final Color? inquiryRightBackgroundColor;
+  final Color? rightBackgroundColor;
 
   /// Splashes a [InquiryOption] when the user taps it.
   /// Defaults to [Theme.of(context).primaryColorLight].
-  final Color? inquiryOptionsSplashColor;
+  final Color? optionsSplashColor;
 
   /// Radius of the border of a [InquiryOption] when the user has voted.
   /// Defaults to Radius.circular(8).
@@ -118,10 +118,6 @@ class InquiryStyle {
   /// Color of the progress bar of a [InquiryOption] when the user has voted and is right answer.
   /// Defaults to [Theme.of(context).primaryColor].
   final Color? votedRightProgressColor;
-
-  /// Color of the leading progress bar of a [InquiryOption] when the user has voted.
-  /// Defaults to [Theme.of(context).colorScheme.secondary].
-  final Color? leadingVotedProgessColor;
 
   /// Color of the background of a [InquiryOption] when the user clicks to vote and its still in progress.
   /// Defaults to [Theme.of(context).colorScheme.primaryColorLight].
@@ -177,21 +173,20 @@ class InquiryStyle {
   final ButtonStyle? voteButtonStyle;
 
   const InquiryStyle({
-    this.width = double.infinity,
-    this.heigh = double.infinity,
-    this.inquiryOptionsHeight = 36,
-    this.inquiryOptionsWidth = double.infinity,
-    this.inquiryOptionsBorderRadius = BorderRadius.zero,
+    this.width,
+    this.height,
+    this.optionsHeight = 36,
+    this.optionsWidth,
+    this.optionsBorderRadius = BorderRadius.zero,
     this.votedInquiryPercentRadius = Radius.zero,
-    this.inquiryOptionsBorder = const Border(),
-    this.inquiryRightAnswerBorder = const Border(),
-    this.inquiryOptionsBackgroundColor,
-    this.inquiryWrongBackgroundColor,
-    this.inquiryRightBackgroundColor,
-    this.inquiryOptionsSplashColor,
+    this.optionsBorder = const Border(),
+    this.rightAnswerBorder = const Border(),
+    this.optionsBackgroundColor,
+    this.wrongBackgroundColor,
+    this.rightBackgroundColor,
+    this.optionsSplashColor,
     this.votedWrongProgressColor,
     this.votedRightProgressColor,
-    this.leadingVotedProgessColor,
     this.voteInProgressColor,
     this.votedPercentageTextStyle = const TextStyle(
       fontSize: 14,
