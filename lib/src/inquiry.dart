@@ -93,178 +93,173 @@ class Inquiry extends StackedView<InquiryViewModel> {
     InquiryViewModel viewModel,
     Widget? child,
   ) {
-    return SizedBox(
-      width: style.width ?? MediaQuery.of(context).size.width,
-      height: style.height ?? MediaQuery.of(context).size.height,
-      child: Column(
-        crossAxisAlignment: style.crossAxisAlignment,
-        mainAxisAlignment: style.mainAxisAlignment,
-        key: inquiryId != null ? ValueKey(inquiryId) : UniqueKey(),
-        children: [
-          Visibility(
-            visible: titleWidget != null,
-            child: titleWidget ?? const Placeholder(),
-          ),
-          Visibility(
-            visible: titleWidget != null,
-            child: SizedBox(height: style.heightBetweenTitleAndOptions),
-          ),
-          ...options.map(
-            (option) {
-              final selected = option.id == viewModel.selectedOption;
-              return AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: Visibility(
-                  visible: viewModel.hasVoted,
-                  replacement: Container(
-                    key: UniqueKey(),
-                    margin: EdgeInsets.only(
-                      bottom: style.heightBetweenOptions,
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        viewModel.tapOption(option);
-                      },
-                      splashColor: style.optionsSplashColor,
-                      borderRadius: style.optionsBorderRadius,
-                      child: Container(
-                        height: style.optionsHeight,
-                        width: style.optionsWidth ??
-                            MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.zero,
-                        decoration: BoxDecoration(
-                          color: selected
-                              ? style.voteInProgressColor
-                              : style.optionsBackgroundColor,
-                          border: style.optionsBorder,
-                          borderRadius: style.optionsBorderRadius,
-                        ),
-                        child: Center(
-                            child: Visibility(
-                          visible: viewModel.isLoading && selected,
-                          replacement: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Radio(
-                                value: viewModel.selectedOption,
-                                groupValue: option.id,
-                                onChanged: (_) {
-                                  viewModel.tapOption(option);
-                                },
-                              ),
-                              const SizedBox(
-                                width: 8,
-                              ),
-                              Expanded(
-                                child: option.title,
-                              ),
-                            ],
-                          ),
-                          child: Center(
-                            child: loadingWidget ??
-                                const SizedBox(
-                                  height: 20,
-                                  width: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
-                                ),
-                          ),
-                        )),
-                      ),
-                    ),
+    return Column(
+      crossAxisAlignment: style.crossAxisAlignment,
+      mainAxisAlignment: style.mainAxisAlignment,
+      key: inquiryId != null ? ValueKey(inquiryId) : UniqueKey(),
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Visibility(
+          visible: titleWidget != null,
+          child: titleWidget ?? const SizedBox(),
+        ),
+        Visibility(
+          visible: titleWidget != null,
+          child: SizedBox(height: style.heightBetweenTitleAndOptions),
+        ),
+        ...options.map(
+          (option) {
+            final selected = option.id == viewModel.selectedOption;
+            return AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: Visibility(
+                visible: viewModel.hasVoted,
+                replacement: Container(
+                  key: UniqueKey(),
+                  margin: EdgeInsets.only(
+                    bottom: style.heightBetweenOptions,
                   ),
-                  child: Container(
-                    key: UniqueKey(),
-                    margin: EdgeInsets.only(
-                      bottom: style.heightBetweenOptions,
-                    ),
-                    child: LinearPercentIndicator(
-                      width: style.optionsWidth,
-                      lineHeight: style.optionsHeight,
-                      barRadius: style.votedInquiryPercentRadius,
+                  child: InkWell(
+                    onTap: () {
+                      viewModel.tapOption(option);
+                    },
+                    splashColor: style.optionsSplashColor,
+                    borderRadius: style.optionsBorderRadius,
+                    child: Container(
+                      height: style.optionsHeight,
+                      width: style.optionsWidth ??
+                          MediaQuery.of(context).size.width,
                       padding: EdgeInsets.zero,
-                      percent: viewModel.totalVotes == 0
-                          ? 0
-                          : option.votes / viewModel.totalVotes,
-                      animation: true,
-                      animationDuration: style.votedAnimationDuration,
-                      backgroundColor: selected
-                          ? style.rightBackgroundColor
-                          : style.wrongBackgroundColor,
-                      progressColor: option.rightAnswer
-                          ? style.votedRightProgressColor ??
-                              Theme.of(context).primaryColor
-                          : style.votedWrongProgressColor ??
-                              Theme.of(context).colorScheme.error,
-                      center: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                        ),
-                        child: Row(
+                      decoration: BoxDecoration(
+                        color: selected
+                            ? style.voteInProgressColor
+                            : style.optionsBackgroundColor,
+                        border: style.optionsBorder,
+                        borderRadius: style.optionsBorderRadius,
+                      ),
+                      child: Center(
+                          child: Visibility(
+                        visible: viewModel.isLoading && selected,
+                        replacement: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            option.title,
-                            const SizedBox(
-                              width: 4,
+                            Radio(
+                              value: viewModel.selectedOption,
+                              groupValue: option.id,
+                              onChanged: (_) {
+                                viewModel.tapOption(option);
+                              },
                             ),
-                            if (selected)
-                              const Icon(
-                                Icons.check_circle_outline_rounded,
-                                color: Colors.black,
-                                size: 16,
-                              ),
-                            const Spacer(),
-                            Text(
-                              option.votes.toString(),
-                              style: style.votedPercentageTextStyle,
+                            const SizedBox(
+                              width: 8,
+                            ),
+                            Expanded(
+                              child: option.title,
                             ),
                           ],
                         ),
+                        child: Center(
+                          child: loadingWidget ??
+                              const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                ),
+                              ),
+                        ),
+                      )),
+                    ),
+                  ),
+                ),
+                child: Container(
+                  key: UniqueKey(),
+                  margin: EdgeInsets.only(
+                    bottom: style.heightBetweenOptions,
+                  ),
+                  child: LinearPercentIndicator(
+                    width: style.optionsWidth,
+                    lineHeight: style.optionsHeight,
+                    barRadius: style.votedInquiryPercentRadius,
+                    padding: EdgeInsets.zero,
+                    percent: viewModel.totalVotes == 0
+                        ? 0
+                        : option.votes / viewModel.totalVotes,
+                    animation: true,
+                    animationDuration: style.votedAnimationDuration,
+                    backgroundColor: selected
+                        ? style.rightBackgroundColor
+                        : style.wrongBackgroundColor,
+                    progressColor: option.rightAnswer
+                        ? style.votedRightProgressColor ??
+                            Theme.of(context).primaryColor
+                        : style.votedWrongProgressColor ??
+                            Theme.of(context).colorScheme.error,
+                    center: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          option.title,
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          if (selected)
+                            const Icon(
+                              Icons.check_circle_outline_rounded,
+                              color: Colors.black,
+                              size: 16,
+                            ),
+                          const Spacer(),
+                          Text(
+                            option.votes.toString(),
+                            style: style.votedPercentageTextStyle,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              );
-            },
-          ),
-          if (!viewModel.hasVoted)
-            SizedBox(height: style.heightBetweenOptionsAndMeta),
-          Visibility(
-            visible: !viewModel.hasVoted,
-            child: ElevatedButton(
-              onPressed: viewModel.isLoading || viewModel.selectedOption == null
-                  ? null
-                  : viewModel.vote,
-              style: style.voteButtonStyle ??
-                  ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    foregroundColor: Theme.of(context).primaryColor,
-                    shadowColor: Colors.transparent,
-                    textStyle: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-              child: Text(
-                voteButtonText ?? 'Vote',
               ),
-            ),
-          ),
+            );
+          },
+        ),
+        if (!viewModel.hasVoted)
           SizedBox(height: style.heightBetweenOptionsAndMeta),
-          Text(
-            '${viewModel.totalVotes} $votesText',
-            style: style.votesTextStyle,
-          ),
-          Visibility(
-            visible: metadataWidget != null,
-            child: Expanded(
-              child: metadataWidget ?? const SizedBox(),
+        Visibility(
+          visible: !viewModel.hasVoted,
+          child: ElevatedButton(
+            onPressed: viewModel.isLoading || viewModel.selectedOption == null
+                ? null
+                : viewModel.vote,
+            style: style.voteButtonStyle ??
+                ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  foregroundColor: Theme.of(context).primaryColor,
+                  shadowColor: Colors.transparent,
+                  textStyle: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+            child: Text(
+              voteButtonText ?? 'Vote',
             ),
           ),
-        ],
-      ),
+        ),
+        SizedBox(height: style.heightBetweenOptionsAndMeta),
+        Text(
+          '${viewModel.totalVotes} $votesText',
+          style: style.votesTextStyle,
+        ),
+        Visibility(
+          visible: metadataWidget != null,
+          child: metadataWidget ?? const SizedBox(),
+        ),
+      ],
     );
   }
 

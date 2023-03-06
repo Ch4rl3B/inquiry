@@ -1,3 +1,11 @@
+## 0.0.3+1
+
+* Fixed a bug with scrolling
+
+## 0.0.3
+
+* Removed the `SizedBox` so it can be used inside an scrollable or another sizing widget
+
 ## 0.0.2+2
 
 * Changes in the README.md

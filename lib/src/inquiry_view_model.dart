@@ -66,14 +66,6 @@ class InquiryViewModel extends BaseViewModel {
 }
 
 class InquiryStyle {
-  /// Width of a [Inquiry].
-  /// Defaults to `double.infinity`.
-  final double? width;
-
-  /// Height of a [Inquiry].
-  /// If not specified, the height is `double.infinity`.
-  final double? height;
-
   /// Height of an [InquiryOption].
   /// Defaults to 36.
   final double optionsHeight;
@@ -180,8 +172,6 @@ class InquiryStyle {
   final ButtonStyle? voteButtonStyle;
 
   const InquiryStyle({
-    this.width,
-    this.height,
     this.optionsHeight = 36,
     this.optionsWidth,
     this.optionsBorderRadius = BorderRadius.zero,

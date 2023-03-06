@@ -1,6 +1,6 @@
 name: inquiry
 description: A package for easy show inquiry (questionnaire, quiz)
-version: 0.0.2+2
+version: 0.0.3
 repository: https://github.com/Ch4rl3B/inquiry
 
 environment:
@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  percent_indicator: ^4.2.2
-  stacked: ^3.1.0+3
+  percent_indicator: ^4.2.3
+  stacked: ^3.1.1
 
 
 dev_dependencies:
