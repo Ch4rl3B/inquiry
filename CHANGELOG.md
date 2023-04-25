@@ -1,3 +1,9 @@
+## 0.0.5
+
+* Fixed an error when the `Inquiry` is used on a `List` widget: `A InquiryViewModel was used after being disposed.`
+* Updated `stacked` to 3.2.1
+* Increased the package description to follow dart conventions
+
 ## 0.0.4
 
 * Fixed a bug with scrolling

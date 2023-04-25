@@ -1,6 +1,6 @@
 name: inquiry
-description: A package for easy show inquiry (questionnaire, quiz)
-version: 0.0.4
+description: The Inquiry package for Flutter simplifies creating custom questionnaires with trackable user data. Makes easily store the collected data locally or remotely.
+version: 0.0.5
 repository: https://github.com/Ch4rl3B/inquiry
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   percent_indicator: ^4.2.3
-  stacked: ^3.1.1
+  stacked: ^3.2.1
 
 
 dev_dependencies:

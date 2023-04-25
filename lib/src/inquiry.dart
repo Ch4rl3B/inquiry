@@ -72,20 +72,25 @@ class Inquiry extends StackedView<InquiryViewModel> {
   /// Feel free to personalize the inquiry to your app designs
   final InquiryStyle style;
 
-  const Inquiry({
-    super.key,
-    this.onVoted,
-    this.titleWidget,
-    this.inquiryId,
-    this.hasVoted = false,
-    this.userVotedOptionId,
-    required this.options,
-    this.votesText = 'Votes',
-    this.metadataWidget,
-    this.loadingWidget,
-    this.voteButtonText,
-    this.style = const InquiryStyle(),
-  });
+  /// When the inquiry is on a [List] or other kind of scrollable
+  /// that disposes his children it might be better to make it not disposable
+  /// as you might face the error that --"the ViewModel was used after being disposed"--
+  final bool disposable;
+
+  const Inquiry(
+      {super.key,
+      this.onVoted,
+      this.titleWidget,
+      this.inquiryId,
+      this.hasVoted = false,
+      this.userVotedOptionId,
+      required this.options,
+      this.votesText = 'Votes',
+      this.metadataWidget,
+      this.loadingWidget,
+      this.voteButtonText,
+      this.style = const InquiryStyle(),
+      this.disposable = true});
 
   @override
   Widget builder(
@@ -278,6 +283,10 @@ class Inquiry extends StackedView<InquiryViewModel> {
 
   @override
   bool get createNewViewModelOnInsert => true;
+
+  @override
+  // TODO: implement disposeViewModel
+  bool get disposeViewModel => disposable;
 
   @override
   void onDispose(InquiryViewModel viewModel) {

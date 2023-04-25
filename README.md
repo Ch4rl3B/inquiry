@@ -3,7 +3,7 @@
     <img src="https://img.shields.io/github/stars/Ch4rl3B/inquiry?logo=github" />
   </a>
   <img src="https://img.shields.io/github/license/Ch4rl3B/inquiry?logo=github" />
-  <img src="https://img.shields.io/badge/version-0.0.2-blue.svg" />
+  <img src="https://img.shields.io/badge/latest-0.0.5-blue.svg" />
   <img src="https://img.shields.io/badge/flutter-v3.3.0-blue.svg" />
   <img src="https://img.shields.io/badge/dart-v2.18.0-blue.svg" />
 </p>
