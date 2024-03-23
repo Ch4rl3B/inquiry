@@ -296,5 +296,6 @@ class Inquiry extends StackedView<InquiryViewModel> {
     viewModel.initialise();
   }
 
-  String getPercentString(double percent) => (percent * 100).toStringAsFixed(2);
+  String getPercentString(double percent) => 
+    '${(percent * 100).toStringAsFixed(2)}%';
 }
