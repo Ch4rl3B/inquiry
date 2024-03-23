@@ -1,3 +1,6 @@
+## 0.0.6
+* The votes amount for each option can be displayed in percent.
+
 ## 0.0.5
 
 * Fixed an error when the `Inquiry` is used on a `List` widget: `A InquiryViewModel was used after being disposed.`
