@@ -187,9 +187,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
                     lineHeight: style.optionsHeight,
                     barRadius: style.votedInquiryPercentRadius,
                     padding: EdgeInsets.zero,
-                    percent: viewModel.totalVotes == 0
-                        ? 0
-                        : option.votes / viewModel.totalVotes,
+                    percent: viewModel.getPercent(option.votes),
                     animation: true,
                     animationDuration: style.votedAnimationDuration,
                     backgroundColor: selected
@@ -220,7 +218,7 @@ class Inquiry extends StackedView<InquiryViewModel> {
                             ),
                           const Spacer(),
                           Text(
-                            option.votes.toString(),
+                            style.totalAsPercent ? getPercentString(viewModel.getPercent(option.votes)) : option.votes.toString(),
                             style: style.votedPercentageTextStyle,
                           ),
                         ],
@@ -297,4 +295,6 @@ class Inquiry extends StackedView<InquiryViewModel> {
   void onViewModelReady(InquiryViewModel viewModel) {
     viewModel.initialise();
   }
+
+  String getPercentString(double percent) => (percent * 100).toStringAsFixed(2);
 }
