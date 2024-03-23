@@ -63,6 +63,11 @@ class InquiryViewModel extends BaseViewModel {
       notifyListeners();
     }
   }
+
+  double getPercent(num? part){
+    if(totalVotes == 0) return 0.0;
+    return (part ?? 0) / totalVotes;
+  }
 }
 
 class InquiryStyle {
@@ -171,6 +176,11 @@ class InquiryStyle {
   /// ```
   final ButtonStyle? voteButtonStyle;
 
+
+  /// Use if you want to display the total for each row
+  /// as percent.
+  final bool totalAsPercent;
+
   const InquiryStyle({
     this.optionsHeight = 36,
     this.optionsWidth,
@@ -199,6 +209,7 @@ class InquiryStyle {
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.voteButtonStyle,
+    this.totalAsPercent = false,
   });
 }
 
